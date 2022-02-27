@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VMware+Ubuntu搭建及基本操作 - 杨的个人博客</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="杨笑源, yangxiaoyuan,"> 
+    <meta name="description" content="最近云计算和操作系统两门课都需要使用Linux操作系统，所以就在VMware虚拟机上安装了Ubuntu操作系统，并学习了一些基本操作，虽然并不是第一次接触Linux，但这个过程还是有点令人头秃，把它,"> 
+    <meta name="author" content="Xiaoyuan yang"> 
+    <link rel="alternative" href="atom.xml" title="杨的个人博客" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="VMware+Ubuntu搭建及基本操作 - 杨的个人博客"/>
+    <meta name="twitter:description" content="最近云计算和操作系统两门课都需要使用Linux操作系统，所以就在VMware虚拟机上安装了Ubuntu操作系统，并学习了一些基本操作，虽然并不是第一次接触Linux，但这个过程还是有点令人头秃，把它,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="杨的个人博客"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="VMware+Ubuntu搭建及基本操作 - 杨的个人博客"/>
+    <meta property="og:description" content="最近云计算和操作系统两门课都需要使用Linux操作系统，所以就在VMware虚拟机上安装了Ubuntu操作系统，并学习了一些基本操作，虽然并不是第一次接触Linux，但这个过程还是有点令人头秃，把它,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">杨的个人博客</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">VMware+Ubuntu搭建及基本操作</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">VMware+Ubuntu搭建及基本操作</h1>
+        <div class="stuff">
+            <span>二月 27, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/VMware/" rel="tag">VMware</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>最近云计算和操作系统两门课都需要使用Linux操作系统，所以就在VMware虚拟机上安装了Ubuntu操作系统，并学习了一些基本操作，虽然并不是第一次接触Linux，但这个过程还是有点令人头秃，把它记录下来。</p>
+<h1 id="1-Ubuntu镜像下载"><a href="#1-Ubuntu镜像下载" class="headerlink" title="1. Ubuntu镜像下载"></a>1. Ubuntu镜像下载</h1><p><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu-releases/16.04/">阿里云镜像Ubuntu</a><br>随便找个镜像站下载.iso文件就可以，下载的时候区分server和desktop两种版本，一种带桌面，一种只有命令行服务器</p>
+<h1 id="2-VMware-workstation下载与安装"><a href="#2-VMware-workstation下载与安装" class="headerlink" title="2. VMware-workstation下载与安装"></a>2. VMware-workstation下载与安装</h1><ol>
+<li><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu-releases/16.04/">下载VMware-workstation</a></li>
+<li>vmware-workstation SN许可证：<br>ZF3R0-FHED2-M80TY-8QYGC-NPKYF<br>YF390-0HF8P-M81RQ-2DXQE-M2UT6<br>ZF71R-DMX85-08DQY-8YMNC-PPHV8</li>
+</ol>
+<h1 id="3-创建虚拟机并安装操作系统"><a href="#3-创建虚拟机并安装操作系统" class="headerlink" title="3. 创建虚拟机并安装操作系统"></a>3. 创建虚拟机并安装操作系统</h1><p>按步骤安装即可</p>
+<h1 id="4-Ubuntu系统使用前的基本设置"><a href="#4-Ubuntu系统使用前的基本设置" class="headerlink" title="4. Ubuntu系统使用前的基本设置"></a>4. Ubuntu系统使用前的基本设置</h1><p>！！注意：centOS和redhat系列的操作系统包管理工具为yum；Ubuntu的包管理工具为apt或apt-get。</p>
+<h2 id="1-设置主机名"><a href="#1-设置主机名" class="headerlink" title="1. 设置主机名"></a>1. 设置主机名</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置主机名</span></span><br><span class="line">yang@Ubuntu:~$ hostnamectl set-hostname test1</span><br><span class="line"><span class="comment"># 查看主机名</span></span><br><span class="line">yang@Ubuntu:~$ hostnamectl</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-root用户密码设置"><a href="#2-root用户密码设置" class="headerlink" title="2. root用户密码设置"></a>2. root用户密码设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yang@Ubuntu:~$ sudo passwd root</span><br><span class="line">New password:</span><br><span class="line"><span class="comment"># 输入设置root密码</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-网络配置"><a href="#3-网络配置" class="headerlink" title="3. 网络配置"></a>3. 网络配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yang@Ubuntu:~$ vi /etc/netplan/00-installer-config.yaml</span><br><span class="line"><span class="comment"># 修改文档内容如下（冒号后必须有空格）：</span></span><br><span class="line">network:</span><br><span class="line">	ethernets:</span><br><span class="line">		ens33:</span><br><span class="line">			dhcp4: <span class="literal">false</span></span><br><span class="line">			addresses: [192.168.32.202/24]</span><br><span class="line">			gateway4: 192.168.32.2</span><br><span class="line">			nameservers:</span><br><span class="line">				addresses: [202.201.0.131,202.201.0.132]</span><br><span class="line">			dhcp6: no</span><br><span class="line">	version: 2</span><br><span class="line">	</span><br><span class="line">yang@Ubuntu:~$ netplan apply</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-更新源"><a href="#4-更新源" class="headerlink" title="4. 更新源"></a>4. 更新源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yang@Ubuntu:~$ vi /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 直接在命令模式下替换URL：</span></span><br><span class="line">:%s/cn.archive.ubuntu.com/mirrors.tuna.tsinghua.edu.cn/g</span><br><span class="line"><span class="comment"># 保存退出</span></span><br><span class="line">:wq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前源网址</span></span><br><span class="line">yang@Ubuntu:~$ grep -vE <span class="string">&quot;^$|^#&quot;</span> /etc/apt/sources.list</span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">yang@Ubuntu:~$ apt update</span><br><span class="line">yang@Ubuntu:~$ apt upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-时区设置并安装时间服务NTP"><a href="#5-时区设置并安装时间服务NTP" class="headerlink" title="5. 时区设置并安装时间服务NTP"></a>5. 时区设置并安装时间服务NTP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 时区设置</span></span><br><span class="line">yang@Ubuntu:~$ timedatectl set-timezone Asia/Shanghai</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装NTP服务器</span></span><br><span class="line">yang@Ubuntu:~$ apt install ntp</span><br><span class="line">yang@Ubuntu:~$ vi /etc/ntp.conf</span><br><span class="line"><span class="comment"># 添加如下内容并保存：</span></span><br><span class="line">restrict 10.0.0.0 mask 255.255.255.0 nomodify notrap  <span class="comment"># 添加允许访问服务器的客户端地址</span></span><br><span class="line">server ntp.lzu.edu.cn iburst  <span class="comment"># 修改上游同步服务器</span></span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line">yang@Ubuntu:~$ systemctl start ntp</span><br><span class="line">yang@Ubuntu:~$ systemctl <span class="built_in">enable</span> ntp</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-ssh免密认证设置"><a href="#6-ssh免密认证设置" class="headerlink" title="6. ssh免密认证设置"></a>6. ssh免密认证设置</h2><p>通过ssh密钥配对，可以使得不用每次ssh远程登录的时候都要输入密码了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成密钥对</span></span><br><span class="line">yang@Ubuntu:~$ ssh-keygen</span><br><span class="line"></span><br><span class="line">yang@Ubuntu:~$ vi /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># 加入配置：</span></span><br><span class="line">AuthorizedKeysFile .ssh/authorized_keys //默认认证key文件</span><br><span class="line">PermitRootLogin <span class="built_in">yes</span> //是否允许root账户登录</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span> //是否允许密码认证</span><br><span class="line"></span><br><span class="line">yang@Ubuntu:~$ vi ~/.ssh/config</span><br><span class="line"><span class="comment"># 加入配置：</span></span><br><span class="line">Host *</span><br><span class="line">StrictHostKeyChecking no</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将公钥放到ssh认证文件中</span></span><br><span class="line">yang@Ubuntu:~$ <span class="built_in">cat</span> ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改文件权限：</span></span><br><span class="line">yang@Ubuntu:~$ <span class="built_in">chmod</span> 600 ~/.ssh/authorized_keys</span><br><span class="line">yang@Ubuntu:~$ <span class="built_in">chmod</span> 600 ~/.ssh/config</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启密钥认证，并设置密码密钥认证开机自启动</span></span><br><span class="line">yang@Ubuntu:~$ systemctl restart sshd</span><br><span class="line">yang@Ubuntu:~$ systemctl <span class="built_in">enable</span> sshd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最后把.ssh目录拷贝到其他主机上即可</span></span><br><span class="line">yang@Ubuntu:~$ scp -r ~/.ssh node01:~/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用远程主机登陆时可以使用私钥即可</span></span><br><span class="line">ssh root@ServerIp -i 私钥路径+文件名</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-添加用户和管理组"><a href="#7-添加用户和管理组" class="headerlink" title="7. 添加用户和管理组"></a>7. 添加用户和管理组</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yang@Ubuntu:~$ useradd -s /bin/bash -m hadoop </span><br><span class="line">yang@Ubuntu:~$ passwd hadoop</span><br><span class="line">yang@Ubuntu:~$ usermod -aG sudo hadoop</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-更新系统"><a href="#8-更新系统" class="headerlink" title="8. 更新系统"></a>8. 更新系统</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看系统更新状态</span></span><br><span class="line">yang@Ubuntu:~$ apt update</span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">yang@Ubuntu:~$ apt upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-代理设置"><a href="#9-代理设置" class="headerlink" title="9. 代理设置"></a>9. 代理设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yang@Ubuntu:~$ vi /etc/apt/apt.conf</span><br><span class="line"><span class="comment"># 文件内容：</span></span><br><span class="line">Acquire::http::proxy <span class="string">&quot;http://noc:8912027@cg.lzu.edu.cn:8080&quot;</span>;</span><br><span class="line">Acquire::ftp::proxy <span class="string">&quot;http://noc:8912027@cg.lzu.edu.cn:8080&quot;</span>;</span><br><span class="line">Acquire::https::proxy <span class="string">&quot;http://noc:8912027@cg.lzu.edu.cn:8080&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="10-系统基本优化"><a href="#10-系统基本优化" class="headerlink" title="10. 系统基本优化"></a>10. 系统基本优化</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="11-安装java-JDK"><a href="#11-安装java-JDK" class="headerlink" title="11. 安装java JDK"></a>11. 安装java JDK</h2><p>在Windows上下载<a target="_blank" rel="noopener" href="https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz">Java JDK压缩文件</a>，然后通过cmd传到Linux服务器上（PS:因为我的Ubuntu只是服务器没有桌面）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r C:\Users\root\Downloads\jdk-17_linux-x64_bin.tar.gz root@192.168.17.128:~/</span><br></pre></td></tr></table></figure>
+<p>在Ubuntu中安装环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar –zxvf jdk-8u281-linux-x64.tar.gz</span><br><span class="line"></span><br><span class="line">vi /root/.bashrc</span><br><span class="line"><span class="comment"># 添加root用户的java环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/root/jdk1.8.0_281</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> </span><br><span class="line">CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib:<span class="variable">$JAVA_HOME</span>/lib:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试安装结果</span></span><br><span class="line">java --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-安装nginx"><a href="#12-安装nginx" class="headerlink" title="12. 安装nginx"></a>12. 安装nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">yang@Ubuntu:~$ apt install nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动、查看、停止服务</span></span><br><span class="line">yang@Ubuntu:~$ systemctl start nginx</span><br><span class="line">yang@Ubuntu:~$ systemctl status nginx</span><br><span class="line">yang@Ubuntu:~$ systemctl stop nginx</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-常用的Linux基本命令"><a href="#5-常用的Linux基本命令" class="headerlink" title="5. 常用的Linux基本命令"></a>5. 常用的Linux基本命令</h1><h2 id="1-Vim的使用（三种模式-快捷键）"><a href="#1-Vim的使用（三种模式-快捷键）" class="headerlink" title="1. Vim的使用（三种模式+快捷键）"></a>1. Vim的使用（三种模式+快捷键）</h2><h2 id="2-管理员身份切换："><a href="#2-管理员身份切换：" class="headerlink" title="2. 管理员身份切换："></a>2. 管理员身份切换：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入管理员模式</span></span><br><span class="line">yang@Ubuntu:~$ su</span><br><span class="line"><span class="comment"># 退出管理员模式</span></span><br><span class="line">root@Ubuntu:~$ <span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-修改文件权限："><a href="#3-修改文件权限：" class="headerlink" title="3. 修改文件权限："></a>3. 修改文件权限：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-查看"><a href="#4-查看" class="headerlink" title="4. 查看"></a>4. 查看</h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="/audio/破茧.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="2ee3dab371fc6b926450"
+        data-cs="80e3a063b0563b737e2a880855076d981e3d195a"
+        data-r="yang-xiaoyuan.github.io"
+        data-o="yang-xiaoyuan"
+        data-a="*"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Ubuntu%E9%95%9C%E5%83%8F%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.</span> <span class="toc-text">1. Ubuntu镜像下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-VMware-workstation%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">2. VMware-workstation下载与安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%B9%B6%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">3. 创建虚拟机并安装操作系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Ubuntu%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E5%89%8D%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">4. Ubuntu系统使用前的基本设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AE%BE%E7%BD%AE%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-number">4.1.</span> <span class="toc-text">1. 设置主机名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-root%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.2.</span> <span class="toc-text">2. root用户密码设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE"><span class="toc-number">4.3.</span> <span class="toc-text">3. 网络配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%9B%B4%E6%96%B0%E6%BA%90"><span class="toc-number">4.4.</span> <span class="toc-text">4. 更新源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%97%B6%E5%8C%BA%E8%AE%BE%E7%BD%AE%E5%B9%B6%E5%AE%89%E8%A3%85%E6%97%B6%E9%97%B4%E6%9C%8D%E5%8A%A1NTP"><span class="toc-number">4.5.</span> <span class="toc-text">5. 时区设置并安装时间服务NTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-ssh%E5%85%8D%E5%AF%86%E8%AE%A4%E8%AF%81%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.6.</span> <span class="toc-text">6. ssh免密认证设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%92%8C%E7%AE%A1%E7%90%86%E7%BB%84"><span class="toc-number">4.7.</span> <span class="toc-text">7. 添加用户和管理组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.8.</span> <span class="toc-text">8. 更新系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.9.</span> <span class="toc-text">9. 代理设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E7%B3%BB%E7%BB%9F%E5%9F%BA%E6%9C%AC%E4%BC%98%E5%8C%96"><span class="toc-number">4.10.</span> <span class="toc-text">10. 系统基本优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%AE%89%E8%A3%85java-JDK"><span class="toc-number">4.11.</span> <span class="toc-text">11. 安装java JDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E5%AE%89%E8%A3%85nginx"><span class="toc-number">4.12.</span> <span class="toc-text">12. 安装nginx</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%B8%B8%E7%94%A8%E7%9A%84Linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-number">5.</span> <span class="toc-text">5. 常用的Linux基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Vim%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%88%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F-%E5%BF%AB%E6%8D%B7%E9%94%AE%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">1. Vim的使用（三种模式+快捷键）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%A1%E7%90%86%E5%91%98%E8%BA%AB%E4%BB%BD%E5%88%87%E6%8D%A2%EF%BC%9A"><span class="toc-number">5.2.</span> <span class="toc-text">2. 管理员身份切换：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%EF%BC%9A"><span class="toc-number">5.3.</span> <span class="toc-text">3. 修改文件权限：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%9F%A5%E7%9C%8B"><span class="toc-number">5.4.</span> <span class="toc-text">4. 查看</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>时间序列预测的常用方法及实例 - 杨的个人博客</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="杨笑源, yangxiaoyuan,"> 
+    <meta name="description" content="今年美赛C题被一个时间序列预测折磨到，一结束就赶紧整理一下时间序列预测常用的几个模型。
+12data = pd.read_csv(&amp;quot;LBMA-GOLD.csv&amp;quot;)series =,"> 
+    <meta name="author" content="Xiaoyuan yang"> 
+    <link rel="alternative" href="atom.xml" title="杨的个人博客" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="时间序列预测的常用方法及实例 - 杨的个人博客"/>
+    <meta name="twitter:description" content="今年美赛C题被一个时间序列预测折磨到，一结束就赶紧整理一下时间序列预测常用的几个模型。
+12data = pd.read_csv(&amp;quot;LBMA-GOLD.csv&amp;quot;)series =,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="杨的个人博客"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="时间序列预测的常用方法及实例 - 杨的个人博客"/>
+    <meta property="og:description" content="今年美赛C题被一个时间序列预测折磨到，一结束就赶紧整理一下时间序列预测常用的几个模型。
+12data = pd.read_csv(&amp;quot;LBMA-GOLD.csv&amp;quot;)series =,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">杨的个人博客</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">时间序列预测的常用方法及实例</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">时间序列预测的常用方法及实例</h1>
+        <div class="stuff">
+            <span>二月 22, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/ARIMA/" rel="tag">ARIMA</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/LSTM/" rel="tag">LSTM</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/sklearn/" rel="tag">sklearn</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E9%A2%84%E6%B5%8B/" rel="tag">时间序列预测</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>今年美赛C题被一个时间序列预测折磨到，一结束就赶紧整理一下时间序列预测常用的几个模型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = pd.read_csv(<span class="string">&quot;LBMA-GOLD.csv&quot;</span>)</span><br><span class="line">series = data[<span class="string">&quot;USD (PM)&quot;</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="指数平滑"><a href="#指数平滑" class="headerlink" title="指数平滑"></a>指数平滑</h1><h2 id="平均移动"><a href="#平均移动" class="headerlink" title="平均移动"></a>平均移动</h2><h2 id="一次指数平滑"><a href="#一次指数平滑" class="headerlink" title="一次指数平滑"></a>一次指数平滑</h2><h2 id="二次指数平滑"><a href="#二次指数平滑" class="headerlink" title="二次指数平滑"></a>二次指数平滑</h2><h2 id="三次指数平滑（Hot-winters）"><a href="#三次指数平滑（Hot-winters）" class="headerlink" title="三次指数平滑（Hot-winters）"></a>三次指数平滑（Hot-winters）</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">series=np.log(series)</span><br><span class="line">train = series[:<span class="number">800</span>]</span><br><span class="line">test = series[<span class="number">800</span>:<span class="number">1200</span>]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.api <span class="keyword">import</span> ExponentialSmoothing</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">y_hat_avg = test.copy()</span><br><span class="line">fit1 = ExponentialSmoothing(np.asarray(train), seasonal_periods=<span class="number">200</span>, trend=<span class="string">&#x27;add&#x27;</span>, seasonal=<span class="string">&#x27;add&#x27;</span>, ).fit()</span><br><span class="line"></span><br><span class="line">y_hat_avg = fit1.forecast(<span class="built_in">len</span>(test))</span><br><span class="line">plt.plot(test)</span><br><span class="line">plt.plot(y_hat_avg, color=<span class="string">&quot;red&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><p>采用LSTM神经网络，将前n天的历史数据作为特征，或前一天的n个数据（如天气的温度、湿度、风力等）作为特征，进行训练，然后预测 <strong>下一天</strong> 的数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> MinMaxScaler</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> LabelEncoder</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> LSTM</span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="comment"># convert series to supervised learning</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">series_to_supervised</span>(<span class="params">data, n_in=<span class="number">1</span>, n_out=<span class="number">1</span>, dropnan=<span class="literal">True</span></span>):</span><br><span class="line">    n_vars = <span class="number">1</span> <span class="keyword">if</span> <span class="built_in">type</span>(data) <span class="keyword">is</span> <span class="built_in">list</span> <span class="keyword">else</span> data.shape[<span class="number">1</span>]</span><br><span class="line">    df = pd.DataFrame(data)</span><br><span class="line">    cols, names = <span class="built_in">list</span>(), <span class="built_in">list</span>()</span><br><span class="line">    <span class="comment"># input sequence (t-n, ... t-1)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n_in, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">        cols.append(df.shift(i))</span><br><span class="line">        names += [(<span class="string">&#x27;var%d(t-%d)&#x27;</span> % (j+<span class="number">1</span>, i)) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n_vars)]</span><br><span class="line">    <span class="comment"># forecast sequence (t, t+1, ... t+n)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, n_out):</span><br><span class="line">        cols.append(df.shift(-i))</span><br><span class="line">        <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">            names += [(<span class="string">&#x27;var%d(t)&#x27;</span> % (j+<span class="number">1</span>)) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n_vars)]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            names += [(<span class="string">&#x27;var%d(t+%d)&#x27;</span> % (j+<span class="number">1</span>, i)) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n_vars)]</span><br><span class="line">    <span class="comment"># put it all together</span></span><br><span class="line">    agg = pd.concat(cols, axis=<span class="number">1</span>)</span><br><span class="line">    agg.columns = names</span><br><span class="line">    <span class="comment"># drop rows with NaN values</span></span><br><span class="line">    <span class="keyword">if</span> dropnan:</span><br><span class="line">        agg.dropna(inplace=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> agg</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">values = pd.DataFrame(series)</span><br><span class="line"><span class="comment"># ensure all data is float</span></span><br><span class="line">values = values.astype(<span class="string">&#x27;float32&#x27;</span>)</span><br><span class="line"><span class="comment"># normalize features</span></span><br><span class="line">scaler = MinMaxScaler(feature_range=(<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">scaled = scaler.fit_transform(values)</span><br><span class="line"><span class="comment"># frame as supervised learning</span></span><br><span class="line">reframed = series_to_supervised(scaled, <span class="number">12</span>, <span class="number">1</span>)</span><br><span class="line">reframed.head()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">reframed = reframed.values</span><br><span class="line">n_train_hours = <span class="built_in">len</span>(reframed) - <span class="number">1</span></span><br><span class="line">train = reframed[:n_train_hours, :]</span><br><span class="line">test = reframed[n_train_hours:, :]</span><br><span class="line">train_X, train_y = train[:, :-<span class="number">1</span>], train[:, -<span class="number">1</span>]</span><br><span class="line">test_X, test_y = test[:, :-<span class="number">1</span>], test[:, -<span class="number">1</span>]</span><br><span class="line">train_X = train_X.reshape((train_X.shape[<span class="number">0</span>], <span class="number">1</span>, train_X.shape[<span class="number">1</span>]))</span><br><span class="line">test_X = test_X.reshape((test_X.shape[<span class="number">0</span>], <span class="number">1</span>, test_X.shape[<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line">model.add(LSTM(<span class="number">50</span>, input_shape=(train_X.shape[<span class="number">1</span>], train_X.shape[<span class="number">2</span>])))</span><br><span class="line">model.add(Dense(<span class="number">1</span>))</span><br><span class="line">model.<span class="built_in">compile</span>(loss=<span class="string">&#x27;mae&#x27;</span>, optimizer=<span class="string">&#x27;adam&#x27;</span>)</span><br><span class="line">model.fit(train_X, train_y, epochs=<span class="number">50</span>, batch_size=<span class="number">72</span>, validation_data=(test_X, test_y), verbose=<span class="number">2</span>, shuffle=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预测</span></span><br><span class="line">pred = scaler.inverse_transform(model.predict(test_X))</span><br></pre></td></tr></table></figure>
+
+<h1 id="ARIMA"><a href="#ARIMA" class="headerlink" title="ARIMA"></a>ARIMA</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 训练集和测试集</span></span><br><span class="line">train = series[:<span class="number">1000</span>]</span><br><span class="line">test = series[<span class="number">1000</span>:<span class="number">1800</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 差分处理使数据平稳</span></span><br><span class="line"><span class="comment"># 一次差分</span></span><br><span class="line">df_role_mean_diff1 = train.diff(<span class="number">1</span>)</span><br><span class="line">df_role_mean_diff1.dropna(inplace=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 二次差分</span></span><br><span class="line">df_role_mean_diff2 = df_role_mean_diff1.diff(<span class="number">1</span>)</span><br><span class="line">df_role_mean_diff2.dropna(inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检验P值小于0.05说明序列已经平稳</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.stattools <span class="keyword">import</span> adfuller</span><br><span class="line">adfuller(df_role_mean_diff1)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">(-5.453484744988976,</span></span><br><span class="line"><span class="string"> 2.612767642385396e-06,   # P Value</span></span><br><span class="line"><span class="string"> 20,</span></span><br><span class="line"><span class="string"> 978,</span></span><br><span class="line"><span class="string"> &#123;&#x27;1%&#x27;: -3.437054035425408,</span></span><br><span class="line"><span class="string">  &#x27;5%&#x27;: -2.8644997864059363,</span></span><br><span class="line"><span class="string">  &#x27;10%&#x27;: -2.5683459429326576&#125;,</span></span><br><span class="line"><span class="string"> 14027.877806400826)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 搜索最佳p,q</span></span><br><span class="line"><span class="keyword">import</span> statsmodels.tsa.stattools <span class="keyword">as</span> st</span><br><span class="line">order = st.arma_order_select_ic(df_role_mean_diff2,max_ar=<span class="number">2</span>,max_ma=<span class="number">2</span>,ic=[<span class="string">&#x27;aic&#x27;</span>,<span class="string">&#x27;bic&#x27;</span>])</span><br><span class="line">order.bic_min_order</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ARMA使用二阶差分</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span> ARMA</span><br><span class="line">model = ARMA(df_role_mean_diff2, order=(<span class="number">1</span>,<span class="number">6</span>)) </span><br><span class="line">result_arma = model.fit(disp=-<span class="number">1</span>, method=<span class="string">&#x27;css&#x27;</span>)</span><br><span class="line">predict_ts = result_arma.predict(end=<span class="number">1800</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 还原二阶差分</span></span><br><span class="line">rol_recover_1=pd.concat([df_role_mean_diff1.iloc[:<span class="number">1</span>],predict_ts]).cumsum()</span><br><span class="line">rol_recover=pd.concat([train.iloc[:<span class="number">1</span>],rol_recover_1[<span class="number">1</span>:]]).cumsum()</span><br><span class="line">rol_recover</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ARIMA使用一阶差分</span></span><br><span class="line"><span class="keyword">from</span> statsmodels.tsa.arima_model <span class="keyword">import</span> ARIMA</span><br><span class="line">model = ARIMA(df_role_mean_diff1, order=(<span class="number">0</span>,<span class="number">1</span>,<span class="number">10</span>))</span><br><span class="line">result = model.fit()</span><br><span class="line">predict_ts = result.predict(end=<span class="number">1800</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 还原一阶差分</span></span><br><span class="line">rol_recover=pd.concat([train.iloc[:<span class="number">1</span>],-predict_ts]).cumsum()</span><br><span class="line">rol_recover</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一阶差分结果</span></span><br><span class="line">train.plot(figsize=(<span class="number">10</span>,<span class="number">5</span>))</span><br><span class="line">test.plot()</span><br><span class="line">rol_recover.plot(color=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>若出现预测不准确（后面出现一条直线等），需要减小预测长度。</p>
+<h1 id="灰色关联预测"><a href="#灰色关联预测" class="headerlink" title="灰色关联预测"></a>灰色关联预测</h1>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="/audio/破茧.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="2ee3dab371fc6b926450"
+        data-cs="80e3a063b0563b737e2a880855076d981e3d195a"
+        data-r="yang-xiaoyuan.github.io"
+        data-o="yang-xiaoyuan"
+        data-a="*"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%B9%B3%E6%BB%91"><span class="toc-number">1.</span> <span class="toc-text">指数平滑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E7%A7%BB%E5%8A%A8"><span class="toc-number">1.1.</span> <span class="toc-text">平均移动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E6%AC%A1%E6%8C%87%E6%95%B0%E5%B9%B3%E6%BB%91"><span class="toc-number">1.2.</span> <span class="toc-text">一次指数平滑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E6%AC%A1%E6%8C%87%E6%95%B0%E5%B9%B3%E6%BB%91"><span class="toc-number">1.3.</span> <span class="toc-text">二次指数平滑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8C%87%E6%95%B0%E5%B9%B3%E6%BB%91%EF%BC%88Hot-winters%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">三次指数平滑（Hot-winters）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LSTM"><span class="toc-number">2.</span> <span class="toc-text">LSTM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ARIMA"><span class="toc-number">3.</span> <span class="toc-text">ARIMA</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E9%A2%84%E6%B5%8B"><span class="toc-number">4.</span> <span class="toc-text">灰色关联预测</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
