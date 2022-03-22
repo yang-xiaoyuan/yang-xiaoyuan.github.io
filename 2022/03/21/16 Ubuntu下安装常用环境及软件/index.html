@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ubuntu下安装常用环境及软件 - 杨的个人博客</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="杨笑源, yangxiaoyuan,"> 
+    <meta name="description" content="本篇介绍了在Ubuntu系统中安装Java JDK，nginx服务器，KMS激活服务器，搭建wordpress博客等操作的具体流程。
+在linux下安装软件通常有三种方式：
+
+
+下载二进制文件压缩包,"> 
+    <meta name="author" content="Xiaoyuan yang"> 
+    <link rel="alternative" href="atom.xml" title="杨的个人博客" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Ubuntu下安装常用环境及软件 - 杨的个人博客"/>
+    <meta name="twitter:description" content="本篇介绍了在Ubuntu系统中安装Java JDK，nginx服务器，KMS激活服务器，搭建wordpress博客等操作的具体流程。
+在linux下安装软件通常有三种方式：
+
+
+下载二进制文件压缩包,"/>
+    
+    
+    
+    
+    <meta property="og:site_name" content="杨的个人博客"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="Ubuntu下安装常用环境及软件 - 杨的个人博客"/>
+    <meta property="og:description" content="本篇介绍了在Ubuntu系统中安装Java JDK，nginx服务器，KMS激活服务器，搭建wordpress博客等操作的具体流程。
+在linux下安装软件通常有三种方式：
+
+
+下载二进制文件压缩包,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">杨的个人博客</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Ubuntu下安装常用环境及软件</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Ubuntu下安装常用环境及软件</h1>
+        <div class="stuff">
+            <span>三月 21, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>本篇介绍了在Ubuntu系统中安装Java JDK，nginx服务器，KMS激活服务器，搭建wordpress博客等操作的具体流程。</p>
+<p>在linux下安装软件通常有三种方式：</p>
+<blockquote>
+<ol>
+<li>下载二进制文件压缩包直接使用</li>
+<li>使用包管理工具安装常用的软件包</li>
+<li>编译安装，自己解决软件包依赖关系，使用源码编译生成二进制文件</li>
+</ol>
+</blockquote>
+<p>实验环境：</p>
+<blockquote>
+<p><strong>虚拟机</strong>：VMware Workstation<br><strong>虚拟机操作系统</strong>：Ubuntu2004LTS<br><strong>宿主机操作系统</strong>：Windows10</p>
+</blockquote>
+<h2 id="1-安装Java-JDK"><a href="#1-安装Java-JDK" class="headerlink" title="1 安装Java JDK"></a>1 安装Java JDK</h2><p>Hadoop、spark平台运行都需要Java JDK的支持，因此Java是我们经常会使用到的环境。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先下载Java JDK</span></span><br><span class="line">wget http://bigdata.cg.lzu.edu.cn/jdk-8u321-linux-x64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar –zxvf jdk-8u321-linux-x64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 把解压后的文件放到root根目录下</span></span><br><span class="line"><span class="built_in">mv</span> jdk1.8.0_321 /root/</span><br><span class="line"></span><br><span class="line">vi /root/.bashrc</span><br><span class="line"><span class="comment"># 添加root用户的java环境变量（在最后面添加以下内容）</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/root/jdk1.8.0_321</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JAVA_HOME</span>/bin</span><br><span class="line"><span class="built_in">export</span> </span><br><span class="line">CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/jre/lib:<span class="variable">$JAVA_HOME</span>/lib:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line"><span class="comment">#如果需要可以在为任何一个用户添加java环境变量</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新环境变量</span></span><br><span class="line"><span class="built_in">source</span> /root/.bashrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试安装结果</span></span><br><span class="line">java --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-安装nginx"><a href="#2-安装nginx" class="headerlink" title="2 安装nginx"></a>2 安装nginx</h2><p>nginx是一款优秀的反向代理服务器、web服务器、电子邮件代理服务器。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yang@Ubuntu:~$ apt install nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动、查看、停止服务</span></span><br><span class="line">yang@Ubuntu:~$ systemctl start nginx</span><br><span class="line">yang@Ubuntu:~$ systemctl status nginx</span><br><span class="line">yang@Ubuntu:~$ systemctl stop nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机自启动</span></span><br><span class="line">yang@Ubuntu:~$ systemctl <span class="built_in">enable</span> nginx</span><br></pre></td></tr></table></figure>
+<p>以上是通过包管理工具apt进行安装，也可以采用自己编译安装配置环境，移步<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_23832313/article/details/83578836">ubuntu安装nginx</a>。</p>
+<p>以下是通过源码编译安装nginx：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载依赖</span></span><br><span class="line">root@Ubuntu:~$ apt install gcc libpcre3 libpcre3-dev zlib1g zlib1g-dev openssl libssl-dev make cmake</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建文件夹，下载nginx源码</span></span><br><span class="line">root@Ubuntu:~$ <span class="built_in">mkdir</span> ~/nginx_source</span><br><span class="line">root@Ubuntu:~$ <span class="built_in">cd</span> ~/nginx_source</span><br><span class="line">root@Ubuntu:~$ wget http://nginx.org/download/nginx-1.18.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压源码</span></span><br><span class="line">root@Ubuntu:~$ tar -zxvf nginx-1.18.0.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置参数</span></span><br><span class="line">root@Ubuntu:~$ <span class="built_in">cd</span> nginx-1.18.0/</span><br><span class="line">root@Ubuntu:~$ ./configure --user=nginx --group=nginx --prefix=/usr/local/nginx --with-stream --with-stream_ssl_module </span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译安装</span></span><br><span class="line">root@Ubuntu:~$ make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为nginx创建新用户</span></span><br><span class="line">root@Ubuntu:~$ useradd -s /sbin/nologin -M nginx</span><br><span class="line">root@Ubuntu:~$ vi /usr/local/nginx/conf/nginx.conf</span><br><span class="line">修改为：user nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动程序</span></span><br><span class="line">root@Ubuntu:~$ /usr/local/nginx/sbin/nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看进程</span></span><br><span class="line">root@Ubuntu:~$ ps -ef | grep nginx</span><br><span class="line"><span class="comment"># 此时可以通过访问虚拟机IP（默认80端口）看到nginx的初始界面</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 终止/重新加载程序</span></span><br><span class="line">root@Ubuntu:~$ /usr/local/nginx/sbin/nginx -s reload</span><br><span class="line">root@Ubuntu:~$ /usr/local/nginx/sbin/nginx -s stop</span><br></pre></td></tr></table></figure>
+<p>注：启动程序时若80端口被占用，可通过 <strong>netstat -nat |grep “:80”</strong> 查看端口占用情况，然后同通过 <strong>fuser -k -n tcp 80</strong> 强制解除端口占用。</p>
+<p>此外，可以设置负载平衡：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过在nginx.conf文件中添加upstream模块设置负载均衡</span></span><br><span class="line">root@Ubuntu:~$ vi /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="comment"># 添加内容如下图</span></span><br><span class="line">root@Ubuntu:~$ /usr/local/nginx/sbin/nginx -s reload</span><br></pre></td></tr></table></figure>
+<p><img src="/img/Ubuntu/loadbalance.png" alt="img"></p>
+<h2 id="3-安装wordpress"><a href="#3-安装wordpress" class="headerlink" title="3 安装wordpress"></a>3 安装wordpress</h2><p>WordPress是一个免费的开源项目，是使用PHP语言开发的博客平台，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站。WordPress有许多第三方开发的免费模板，安装方式简单易用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装mysql</span></span><br><span class="line">yang@Ubuntu:~$ sudo apt install mysql-server</span><br><span class="line"><span class="comment"># 设置开机自启动</span></span><br><span class="line">yang@Ubuntu:~$ sudo systemctl <span class="built_in">enable</span> mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置数据库</span></span><br><span class="line">yang@Ubuntu:~$ sudo mysql</span><br><span class="line"><span class="comment"># 创建网站的数据库</span></span><br><span class="line">CREATE DATABASE wordpress;</span><br><span class="line"><span class="comment"># 为mysql的新用户</span></span><br><span class="line"><span class="comment"># 比如：create user yang@localhost identified by &#x27;123456&#x27;;</span></span><br><span class="line">CREATE USER username@host IDENTIFIED BY <span class="string">&#x27;password&#x27;</span>;</span><br><span class="line"><span class="comment"># 给用户提供访问wordpress数据库的权限</span></span><br><span class="line">GRANT all privileges on wordpress.* to username@localhost with grant option;</span><br><span class="line"><span class="comment"># 退出mysql</span></span><br><span class="line"><span class="built_in">exit</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装apache服务器</span></span><br><span class="line">yang@Ubuntu:~$ sudo apt install apache2 -y</span><br><span class="line"><span class="comment"># 设置开机自启动</span></span><br><span class="line">yang@Ubuntu:~$ sudo systemctl <span class="built_in">enable</span> apache2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装PHP</span></span><br><span class="line">yang@Ubuntu:~$ sudo apt install php -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载wordpress并解压安装</span></span><br><span class="line">yang@Ubuntu:~$ wget https://wordpress.org/latest.zip</span><br><span class="line"><span class="comment"># 下载unzip用来解压latest.zip</span></span><br><span class="line">yang@Ubuntu:~$ sudo apt install unzip</span><br><span class="line">yang@Ubuntu:~$ unzip latest.zip</span><br><span class="line"><span class="comment"># 将解压后的wordpress中的文件都转移到/var/www/html/wordpress文价夹中，</span></span><br><span class="line"><span class="comment"># /var/www/html/目录是apache服务器的默认访问地址，可以远程直接通过IP访问该文件夹中的内容</span></span><br><span class="line">yang@Ubuntu:~$ sudo <span class="built_in">mkdir</span> /var/www/html/wordpress</span><br><span class="line">yang@Ubuntu:~$ sudo <span class="built_in">mv</span> wordpress/* /var/www/html/wordpress</span><br><span class="line"><span class="comment"># 更改文件夹权限以便下载主题</span></span><br><span class="line">yang@Ubuntu:~$ sudo <span class="built_in">chmod</span> -R 777 /var/www/html/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启apache服务器后就可以通过主机ip/wordpress访问网站了</span></span><br><span class="line">yang@Ubuntu:~$ sudo service apache2 restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一次访问网站需要注册用户，用户名和密码是之前数据库新建用户设置的&#x27;username&#x27;和&#x27;password&#x27;，数据库是wordpress，主机是&#x27;localhost&#x27;，注册完成后就可以登录自己的网站啦~</span></span><br></pre></td></tr></table></figure>
+<p><img src="/img/Ubuntu/wordpress.png" alt="img"></p>
+<h2 id="4-安装KMS激活服务器"><a href="#4-安装KMS激活服务器" class="headerlink" title="4 安装KMS激活服务器"></a>4 安装KMS激活服务器</h2><p>下载vlmscd的二进制文件，网址为 <a target="_blank" rel="noopener" href="https://github.com/Wind4/vlmcsd/releases/download/svn1113/binaries.tar.gz%EF%BC%8C%E4%BD%86%E6%88%91%E7%9A%84ubuntu%E6%97%A0%E6%B3%95%E7%9B%B4%E6%8E%A5wget%E4%B8%8B%E8%BD%BD%EF%BC%8C%E5%8F%AF%E8%83%BD%E6%98%AF%E8%AF%B7%E6%B1%82%E5%A4%B4%E7%9A%84%E9%97%AE%E9%A2%98%E6%8B%92%E7%BB%9D%E8%BF%9E%E6%8E%A5%EF%BC%8C%E6%89%80%E4%BB%A5%E5%B0%B1%E5%85%88%E5%9C%A8Windows%E4%B8%8B%E8%BD%BD%E5%A5%BD%E5%90%8E%E4%BD%BF%E7%94%A8scp%E4%BC%A0%E8%BE%93%E5%88%B0%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%87%8C%E3%80%82">https://github.com/Wind4/vlmcsd/releases/download/svn1113/binaries.tar.gz，但我的ubuntu无法直接wget下载，可能是请求头的问题拒绝连接，所以就先在Windows下载好后使用scp传输到虚拟机里。</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">yang@Ubuntu:~$ tar -xvf binaries.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制文件到本地专用文件夹，并赋予权限</span></span><br><span class="line">yang@Ubuntu:~$ <span class="built_in">cd</span> binaries/Linux/intel/static</span><br><span class="line">yang@Ubuntu:~$ <span class="built_in">cp</span> vlmcsd-x64-musl-static /usr/local/bin</span><br><span class="line">yang@Ubuntu:~$ <span class="built_in">chmod</span> 777 /usr/local/bin vlmcsd-x64-musl-static</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行文件并查看端口</span></span><br><span class="line">yang@Ubuntu:~$ /usr/local/bin/vlmcsd-x64-musl-static</span><br><span class="line">yang@Ubuntu:~$ lsof /usr/local/bin/vlmcsd-x64-musl-static</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭防火墙（或放行某个端口）</span></span><br><span class="line">yang@Ubuntu:~$ systemctl stop firewalld.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># Windows下激活KMS，管理员身份打开cmd：</span></span><br><span class="line"><span class="comment"># 密钥网址：https://docs.microsoft.com/zh-cn/windows-server/getstarted/kms-client-activation-keys</span></span><br><span class="line"><span class="comment"># 需选择适合自己Windows版本的密钥</span></span><br><span class="line">slmgr /ipk xxxxx-xxxxx-xxxxx-xxxxx  <span class="comment"># 设置密钥</span></span><br><span class="line">slmgr /skms IP或domain  <span class="comment"># 设置KMS的激活主机</span></span><br><span class="line">slmgr /ato  <span class="comment"># 激活</span></span><br><span class="line">slmgr.vbs -xpr  <span class="comment"># 查看状态</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-使用nginx安装rtmp推流服务器"><a href="#5-使用nginx安装rtmp推流服务器" class="headerlink" title="5 使用nginx安装rtmp推流服务器"></a>5 使用nginx安装rtmp推流服务器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下命令默认服务器已经安装好nginx并在正常运行中</span></span><br><span class="line"><span class="comment"># 下载rtmp模块</span></span><br><span class="line">yang@Ubuntu:~$ git <span class="built_in">clone</span> https://github.com/arut/nginx-rtmp-module.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将rtmp模块添加到nginx中</span></span><br><span class="line">yang@Ubuntu:~$ <span class="built_in">cd</span> ~/nginx-1.18.0/</span><br><span class="line">yang@Ubuntu:~$ ./configure --add-module=../nginx-rtmp-module</span><br><span class="line">yang@Ubuntu:~$ make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在/usr/local/nginx/conf/nginx.conf中添加rtmp模块配置</span></span><br><span class="line">yang@Ubuntu:~$ <span class="built_in">mkdir</span> /usr/local/nginx/html/tv_file</span><br><span class="line">yang@Ubuntu:~$ vi /usr/local/nginx/conf/nginx.conf</span><br><span class="line">添加</span><br><span class="line">rtmp &#123;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 1935;</span><br><span class="line">        chunk_size 4000;</span><br><span class="line">        application live &#123;</span><br><span class="line">             live on;</span><br><span class="line">             allow publish 127.0.0.1;</span><br><span class="line">             allow play all;</span><br><span class="line">             hls on;</span><br><span class="line">             hls_path /usr/local/nginx/html/tv_file;</span><br><span class="line">             hls_fragment 5s;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载nginx</span></span><br><span class="line">yang@Ubuntu:~$ /usr/local/nginx/sbin/nginx -s reload</span><br><span class="line"><span class="comment"># 至此rtmp推流服务器搭建完成</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载OBS进行推流测试，下载地址：https://obsproject.com/download</span></span><br><span class="line"><span class="comment"># 在该网站上进行拉流测试：https://www.wowza.com/testplayers</span></span><br><span class="line"><span class="comment"># 服务器地址使用：rtmp://IP/live</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="/audio/破茧.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci="2ee3dab371fc6b926450"
+        data-cs="80e3a063b0563b737e2a880855076d981e3d195a"
+        data-r="yang-xiaoyuan.github.io"
+        data-o="yang-xiaoyuan"
+        data-a="*"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85Java-JDK"><span class="toc-number">1.</span> <span class="toc-text">1 安装Java JDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85nginx"><span class="toc-number">2.</span> <span class="toc-text">2 安装nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85wordpress"><span class="toc-number">3.</span> <span class="toc-text">3 安装wordpress</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85KMS%E6%BF%80%E6%B4%BB%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">4 安装KMS激活服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BD%BF%E7%94%A8nginx%E5%AE%89%E8%A3%85rtmp%E6%8E%A8%E6%B5%81%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">5 使用nginx安装rtmp推流服务器</span></a></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
